@@ -17,7 +17,7 @@
   @vite(['resources/css/app.css'])
 
 
-  <title>Document</title>
+  <title>@yield('title')</title>
 </head>
 <body>
  
@@ -25,6 +25,11 @@
     @include('includes/nav')
   </header>
 
+  <div class="container">
+    <div class="row">
+      @yield('content')
+    </div>
+  </div>
 
  
 </body>
