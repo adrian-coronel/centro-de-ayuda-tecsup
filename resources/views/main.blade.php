@@ -20,7 +20,6 @@
   <title>@yield('title')</title>
 </head>
 <body>
- 
   <header>
     @include('includes/nav')
   </header>

@@ -17,13 +17,13 @@ return new class extends Migration
             $table->unsignedBigInteger('id_incident')->unique();
             $table->foreign('id_incident')->references('id_incident')->on('incident')->onDelete('cascade');
 
-            $table->unsignedBigInteger('id_user')->unique();
+            $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
 
-            $table->unsignedBigInteger('id_administrator')->unique();
+            $table->unsignedBigInteger('id_administrator');
             $table->foreign('id_administrator')->references('id_administrator')->on('administrator')->onDelete('cascade');
 
-            $table->unsignedTinyInteger('id_service')->unique();
+            $table->unsignedTinyInteger('id_service');
             $table->foreign('id_service')->references('id_service')->on('service')->onDelete('cascade');
 
             $table->string('title', 80);

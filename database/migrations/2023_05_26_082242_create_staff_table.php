@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('Staff', function (Blueprint $table) {
             $table->id('id_staff');
             
-            $table->unsignedTinyInteger('id_service')->unique();
+            $table->unsignedTinyInteger('id_service');
             $table->foreign('id_service')->references('id_service')->on('service')->onDelete('cascade');
 
             $table->string('name',45);

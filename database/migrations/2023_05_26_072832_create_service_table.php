@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('service', function (Blueprint $table) {
             $table->unsignedTinyInteger('id_service',true)->unique();
             $table->string('name',45);
-            $table->string('location',45);
-            $table->string('description',45);
+            $table->string('location',100);
+            $table->string('description');
             $table->timestamps();
         });
     }

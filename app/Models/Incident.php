@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Incident extends Model
 {
     use HasFactory;
+    protected $table = 'incident';
 
     public function users(){
         return $this->hasMany(User::class);

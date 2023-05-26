@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('date_of_birth');
             $table->tinyInteger('state')->default(1);
             $table->timestamp('email_verified_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

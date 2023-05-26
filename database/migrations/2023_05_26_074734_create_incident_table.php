@@ -15,17 +15,17 @@ return new class extends Migration
             $table->id('id_incident');
 
             //onDelete(cascade) => Indica que cuando se elimina un usuario, las filas relacionadas también se eliminarán en cascada.
-            $table->unsignedBigInteger('id_user')->unique();
+            $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
 
-            $table->unsignedTinyInteger('id_service')->unique();
+            $table->unsignedTinyInteger('id_service');
             $table->foreign('id_service')->references('id_service')->on('service')->onDelete('cascade');
-
+            $table->string('subject',60);
             $table->date('date');
-            $table->dateTime('hour');
+            $table->time('hour');
             $table->string('grade',45);
+            $table->string('impact',60);
             $table->string('description');
-
             $table->timestamps();
         });
     }

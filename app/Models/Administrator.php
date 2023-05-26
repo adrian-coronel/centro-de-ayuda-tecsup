@@ -9,4 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Administrator extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $table = 'administrator';
+
 }
