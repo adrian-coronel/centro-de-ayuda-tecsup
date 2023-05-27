@@ -1,6 +1,8 @@
 @extends('main')
 
 @section('title','Iniciar Sesión')
+@section('body-class','auth-background')
+
 
 @section('content')
 
@@ -15,17 +17,17 @@
     </div>
     <a href="#" style="font-size: 14px;" class="mt-5 nav-link text-secondary">Recuperar contraseña</a>
     <div class="w-100 d-flex flex-column">  
-      <button id="btn-login" class="btn mt-3 mb-2 text-white border-0 py-2 shadow-sm" type="submit">Iniciar sesión</button>
+      <button class="btn btn-gradient-blue mt-3 mb-2 text-white border-0 py-2 shadow-sm" type="submit">Iniciar sesión</button>
       <span style="font-size: 18px;" class="text-secondary">o</span>    
-      <a id="btn-access-google" href="#" class="btn btn-light my-2 py-2 shadow-sm">
+      <a href="#" class="btn btn-light my-2 py-2 shadow-sm" style="color: #339698;">
         Acceder con Google
-        <img id="icon-google" src="./img/icon-google.png" alt="">
+        <img id="icon-google" src="{{asset('/img/icon-google.png')}}" alt="">
       </a>
     </div>
   </form>
 
   <!-- LINK REGISTER -->
-  <p class="text-secondary mt-2"><a href="#">¡Registrate</a> en centro de ayuda <strong class="text-secondary">TECSUP</strong></p>
+  <p class="text-secondary mt-2"><a href="{{route('register')}}">¡Registrate</a> en centro de ayuda <strong class="text-secondary">TECSUP</strong></p>
 </div>
 
 @endsection
