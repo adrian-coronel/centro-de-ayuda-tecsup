@@ -20,87 +20,21 @@
       <p class="mb-4"><i class='bx bx-paper-plane' style="font-size: 1.5rem"></i><span class="mx-1">Contacta con nosotros sobre</span></p>
   </div>
   
-  <!-- ---------------MANTENIMIENTO--------------- -->
+  @foreach ($services as $key => $service)    
   <div class="hover-effect accordion w-100 mb-3">
       <div class="accordion-header d-flex justify-content-between text-align">
-          <p class="p-2 text-primary">Mantenimiento</p>
-          <a class="collapsed btn text-secondary text-center" type="button" data-bs-toggle="collapse" data-bs-target="#content-1">Ver más...</a>
+          <p class="p-2 text-primary">{{$service->name}}</p>
+          <a class="collapsed btn text-secondary text-center" type="button" data-bs-toggle="collapse" data-bs-target="{{'#content-'. $key}}">Ver más...</a>
       </div>
       <div>
-        <div id="content-1" class="accordion-collapse collapse">
+        <div id="{{'content-'. $key}}" class="accordion-collapse collapse">
           <div class="accordion-body py-0">
-              Esta categoría se eca en incidentes relacionados con el mantenimiento de las máquinas y equipos en la institución,  entre otros.
+            {{$service->description}}
           </div>
         </div>
       </div>
   </div>
-
-          
-  <!-- ---------------SEGURIDAD--------------- -->
-  <div class="hover-effect accordion w-100 mb-3">
-      <div class="accordion-header d-flex justify-content-between text-align">
-          <p class="p-2 text-primary">Seguridad</p>
-          <a class="collapsed btn text-secondary text-center" type="button" data-bs-toggle="collapse" data-bs-target="#content-2">Ver más...</a>
-      </div>
-      <div>
-        <div id="content-2" class="accordion-collapse collapse">
-          <div class="accordion-body py-0">
-            En esta categoría se podrían reportar incidentes que no estén relacionados con ninguna de las anteriores categorías.
-          </div>
-        </div>
-      </div>
-  </div>
-
-          
-  <!-- ---------------MEDIO AMBIENTE--------------- -->
-  <div class="hover-effect accordion w-100 mb-3">
-      <div class="accordion-header d-flex justify-content-between yyyyyyyyyyyyyyyyyyyyyy">
-          <p class="p-2 text-primary">Medio ambiente</p>
-          <a class="collapsed btn text-secondary text-center" type="button" data-bs-toggle="collapse" data-bs-target="#content-3">Ver más...</a>
-      </div>
-      <div>
-        <div id="content-3" class="accordion-collapse collapse">
-          <div class="accordion-body py-0">
-              Se pueden reportar incidentes que afecten al medio ambiente, como derrames de químicos, contaminación del aire, del agua, ruido excesivo, entre otros.
-        </div>
-      </div>
-     </div>
-  </div>
-
-
-          
-  <!-- ---------------TRANSPORTE--------------- -->
-  <div class="hover-effect accordion w-100 mb-3">
-      <div class="accordion-header d-flex justify-content-between yyyyyyyyyyyyyyyyyyyyyy">
-          <p class="p-2 text-primary">Transporte</p>
-          <a class="collapsed btn text-secondary text-center" type="button" data-bs-toggle="collapse" data-bs-target="#content-4">Ver más...</a>
-      </div>
-      <div>
-        <div id="content-4" class="accordion-collapse collapse">
-          <div class="accordion-body py-0">
-              En esta categoría se podrían reportar incidentes relacionados con la gestión administrativa de la institución, como errores en la matrícula, problemas con la facturación, entre otros.
-          </div>
-        </div>
-      </div>
-  </div>
-
-
-          
-  <!-- ---------------OTROS--------------- -->
-  <div class="hover-effect accordion w-100 mb-3">
-      <div class="accordion-header d-flex justify-content-between yyyyyyyyyyyyyyyyyyyyyy">
-          <p class="p-2 text-primary">Otros</p>
-          <a class="collapsed btn text-secondary text-center" type="button" data-bs-toggle="collapse" data-bs-target="#content-5">Ver más...</a>
-      </div>
-      <div>
-        <div id="content-5" class="accordion-collapse collapse">
-          <div class="accordion-body py-0">
-            En esta categoría se podrían reportar incidentes que no estén relacionados con ninguna de las anteriores categorías.
-          </div>
-        </div>
-      </div>
-  </div>
-
+  @endforeach
 
 </div>  
 @endsection
