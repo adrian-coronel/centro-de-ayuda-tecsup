@@ -22,7 +22,7 @@ class ServiceFactory extends Factory
         return [
             'name' => fake()->randomElement($occupations),
             'location' => fake()->address(),
-            'description'=> fake()->text(70)
+            'description'=> fake()->text(200)
         ];
     }
 }

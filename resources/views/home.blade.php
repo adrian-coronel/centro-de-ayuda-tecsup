@@ -11,7 +11,7 @@
 
     
 @section('content')
-<div id="content-home" class="card shadow-lg px-5 py-4 col-11 col-lg-7 col-md-10 mx-auto mt-5 mb-5 text-start d-flex align-items-center justify-content-center">
+<div class="card shadow-lg px-5 py-4 col-11 col-lg-7 col-md-10 mx-auto mt-5 mb-5 text-start d-flex align-items-center justify-content-center">
         
   <div>
       <a href="" class="text-decoration-none">Centro de ayuda de Tecsup</a>
@@ -54,7 +54,7 @@
           
   <!-- ---------------MEDIO AMBIENTE--------------- -->
   <div class="hover-effect accordion w-100 mb-3">
-      <div class="accordion-header d-flex justify-content-between text-align">
+      <div class="accordion-header d-flex justify-content-between yyyyyyyyyyyyyyyyyyyyyy">
           <p class="p-2 text-primary">Medio ambiente</p>
           <a class="collapsed btn text-secondary text-center" type="button" data-bs-toggle="collapse" data-bs-target="#content-3">Ver más...</a>
       </div>
@@ -71,7 +71,7 @@
           
   <!-- ---------------TRANSPORTE--------------- -->
   <div class="hover-effect accordion w-100 mb-3">
-      <div class="accordion-header d-flex justify-content-between text-align">
+      <div class="accordion-header d-flex justify-content-between yyyyyyyyyyyyyyyyyyyyyy">
           <p class="p-2 text-primary">Transporte</p>
           <a class="collapsed btn text-secondary text-center" type="button" data-bs-toggle="collapse" data-bs-target="#content-4">Ver más...</a>
       </div>
@@ -88,7 +88,7 @@
           
   <!-- ---------------OTROS--------------- -->
   <div class="hover-effect accordion w-100 mb-3">
-      <div class="accordion-header d-flex justify-content-between text-align">
+      <div class="accordion-header d-flex justify-content-between yyyyyyyyyyyyyyyyyyyyyy">
           <p class="p-2 text-primary">Otros</p>
           <a class="collapsed btn text-secondary text-center" type="button" data-bs-toggle="collapse" data-bs-target="#content-5">Ver más...</a>
       </div>
