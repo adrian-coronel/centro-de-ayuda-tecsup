@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\IncidentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 |y
 */
 
-Route::get('/services',[ServiceController::class, 'index'])->name('services.index');
 
 Route::get('/login', function(){
     return view('auth.login');
@@ -23,4 +23,7 @@ Route::get('/register', function(){
     return view('auth.register');
 })->name('register');
 
-Route::get('/incidents/create',function(){ return view('incident.create');})->name('incidents.create');
+Route::get('/services',[ServiceController::class, 'index'])->name('services.index');
+Route::get('/incidents', [IncidentController::class, 'index'])->name('incidents.index');
+Route::post('/incidents', [IncidentController::class, 'store'])->name('incidents.store');
+Route::get('/incidents/{selectIdService}/create', [IncidentController::class, 'create'])->name('incidents.create');

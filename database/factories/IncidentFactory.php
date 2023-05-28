@@ -29,7 +29,7 @@ class IncidentFactory extends Factory
             'subject' => fake()->name(),
             'date' => fake()->date(),
             'hour' => fake()->time(),
-            'grade' => fake()->randomElement(['critico','alto','medio','bajo']), 
+            'urgency' => fake()->randomElement(['critico','alto','medio','bajo']), 
             'impact' => fake()->randomElement($optionImpact),
             'description' => fake()->text(60),
         ];

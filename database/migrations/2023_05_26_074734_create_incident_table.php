@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -19,11 +20,15 @@ return new class extends Migration
             $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
 
             $table->unsignedTinyInteger('id_service');
-            $table->foreign('id_service')->references('id_service')->on('service')->onDelete('cascade');
+             $table->foreign('id_service')->references('id_service')->on('service')->onDelete('cascade');
             $table->string('subject',60);
-            $table->date('date');
-            $table->time('hour');
-            $table->string('grade',45);
+
+            /*Valores especiales de MySQL se evaluarán al momento de la inserción para obtener la 
+             fecha y hora actuales del sistema.*/
+            $table->date('date')->default(date('Y-m-d'));
+            $table->time('hour')->default(date('H:i:s'));
+            $table->string('file_path')->nullable();
+            $table->string('urgency',45);
             $table->string('impact',60);
             $table->string('description');
             $table->timestamps();

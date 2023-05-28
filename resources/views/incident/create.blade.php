@@ -11,32 +11,38 @@
 
 
 @section('content')
-<form class="mt-5 bg-white d-flex flex-column rounded-2 shadow p-5 col-lg-7 mx-auto" id="support-form">
-  <label class="mb-1" for="asunto">Asunto</label>
-  <input class="form-control" type="text" id="asunto" placeholder="Ingresa el asunto..." required>
+
+<form action="{{route('incidents.store')}}" method="POST" class="mt-5 bg-white d-flex flex-column rounded-2 shadow p-5 col-lg-7 mx-auto" id="support-form" enctype="multipart/form-data">
+  @csrf
+  <label class="mb-1" for="subject">Asunto</label>
+  <input class="form-control" type="text" name="subject" placeholder="Ingresa el asunto..." required>
 
   
-  <label class="mb-1 mt-4" for="categories">Categorías</label>
-  <select style="width: 100%" id="categories" class="form-select " required>
-    <option value="" disabled selected>Seleccione...</option>
-    <option value="mantenimiento">Mantenimiento</option>
-    <option value="seguridad">Seguridad</option>
-    <option value="medio_ambiente">Medio ambiente</option>
+  <label class="mb-1 mt-4" for="services">Categorías</label>
+  <select name="id_service" id="services" style="width: 100%" class="form-select" required>
+    @foreach ($services as $service)
+      <option 
+        {{$service->id_service == $selectIdService ? 'selected' : ''}} 
+        value="{{$service->id_service}}"
+      >
+      {{$service->name}}
+      </option>
+    @endforeach
   </select>
 
 
   <label class="mb-1 mt-4" for="description">Describe qué ha ocurrido y cómo ha ocurrido</label>
-  <textarea id="description" class="form-control" placeholder="Describe tu texto aquí..." required></textarea>
+  <textarea id="description" name="description" class="form-control" placeholder="Describe tu texto aquí..." required></textarea>
 
   <label class="mb-1 mt-4" for="attachment">Archivo adjunto:</label>
   <div class="file-upload form-control py-5 text-center">
     <label for="file-upload">Arrastra y suelta archivos, pega captura de pantalla o busca</label><br>
-    <input class="input-form p-2 rounded border" type="file" id="file-upload" style="display: none;" onchange="showFileName(this)">
-    <button class="btn btn-secondary px-5 mt-3" type="button1" onclick="document.getElementById('file-upload').click()">Subir</button>
+    <input class="input-form p-2 rounded border" type="file" name="file" id="file-upload" style="display: none;" onchange="showFileName(this)">
+    <button class="btn btn-secondary px-5 mt-3" type="button" onclick="document.getElementById('file-upload').click()">Subir</button>
   </div>
 
   <label class="mb-1 mt-4" for="urgency">¿Con qué urgencia hay que arreglar el problema?</label>
-  <select id="urgency" class="form-select" required>
+  <select id="urgency" name="urgency" class="form-select" required>
     <option value="" disabled selected>Seleccione...</option>
     <option value="critico">Crítico</option>
     <option value="alto">Alto</option>
@@ -45,17 +51,17 @@
   </select>
 
   <label class="mb-1 mt-4" for="impact">¿En qué medida te afecta el problema a ti o a los demás?</label>
-  <select id="impact" class="form-select" required>
+  <select id="impact" name="impact" class="form-select" required>
     <option value="" disabled selected>Seleccione...</option>
-    <option value="extenso">Extenso / generalizado</option>
-    <option value="significativo">Significativo / grande</option>
-    <option value="moderado">Moderado / limitado</option>
-    <option value="menor">Menor / localizado</option>
+    <option value="Extenso/generalizado">Extenso / generalizado</option>
+    <option value="Significativo/grande">Significativo / grande</option>
+    <option value="Moderado/limitado">Moderado / limitado</option>
+    <option value="Menor/localizado">Menor / localizado</option>
   </select>
 
   <div class="mt-4">
-    <button class="btn btn-gradient-blue text-white border-0" type="submit">Registrar</button>
-    <a href="{{route('home')}}" class="btn btn-secondary text-white border-0 mx-2" type="button">Regresar</a>
+    <button onclick="showAlert();" class="btn btn-gradient-blue text-white border-0" type="button">Registrar</button>
+    <a href="{{route('services.index')}}" class="btn btn-secondary text-white border-0 mx-2" type="button">Regresar</a>
   </div>
   </form>
   </div>
@@ -68,14 +74,14 @@
       <img class="alert-image" src="{{asset('/img/alert_form.png')}}" alt="Imagen">
 
       <div class="d-flex justify-content-center">
-        <button class="alert-button">Cancelar</button>
-        <button class="alert-button">Aceptar</button>
+        <button id="btn-cancel" class="alert-button" type="submit">Cancelar</button>
+        <button id="btn-send" class="alert-button">Aceptar</button>
       </div>
     </div>
   </div>
 @endsection
 
-@push('scripts')
+@section('scripts')
   {{-- <script src="{{ asset('js/select2.js') }}"></script> --}}
   <script>   
     //----------ARCHIVO----------//
@@ -98,14 +104,21 @@
     const form = document.getElementById('support-form');
     const alertOverlay = document.getElementById('alert-overlay');
     const alertButtons = document.getElementsByClassName('alert-button');
-    
-    // Agregar evento de envío del formulario
-    form.addEventListener('submit', function (event) {
-      event.preventDefault(); // Evitar que el formulario se envíe
-    
-      // Mostrar la alerta
+    const btnSend = document.querySelector('#btn-send');
+    const btnCancel = document.querySelector('#btn-cancel');
+
+    function showAlert(){
       alertOverlay.style.display = 'flex';
-    });
+
+      btnSend.addEventListener('click',function(event){
+        form.submit();
+      })
+
+      btnCancel.addEventListener('click',function(event){
+        event.preventDeault();
+      })
+
+    }
     
     // Agregar eventos a los botones de la alerta
     for (let i = 0; i < alertButtons.length; i++) {
@@ -114,5 +127,5 @@
         alertOverlay.style.display = 'none';
       });
     }
-    </script>
-@endpush
+  </script>
+@endsection

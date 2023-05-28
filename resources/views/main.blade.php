@@ -27,6 +27,6 @@
     </div>
   </div>
 
-  @push('scripts')
+  @yield('scripts')
 </body>
 </html>
