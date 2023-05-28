@@ -15,13 +15,15 @@
   <label class="mb-1" for="asunto">Asunto</label>
   <input class="form-control" type="text" id="asunto" placeholder="Ingresa el asunto..." required>
 
+  
   <label class="mb-1 mt-4" for="categories">Categorías</label>
-  <select id="categories" class="form-select" required>
+  <select style="width: 100%" id="categories" class="form-select " required>
     <option value="" disabled selected>Seleccione...</option>
     <option value="mantenimiento">Mantenimiento</option>
     <option value="seguridad">Seguridad</option>
     <option value="medio_ambiente">Medio ambiente</option>
   </select>
+
 
   <label class="mb-1 mt-4" for="description">Describe qué ha ocurrido y cómo ha ocurrido</label>
   <textarea id="description" class="form-control" placeholder="Describe tu texto aquí..." required></textarea>
@@ -60,7 +62,7 @@
 
   <!-- Alerta -->
   <div id="alert-overlay" class="alert-overlay" style="display: none;">
-    <div class="bg-white p-4 text-center shadow-sm rounded-3">
+    <div class="bg-white p-4 text-center shadow-sm rounded-3 col-10 col-lg-4 col-md-5 col-sm-7">
       <h3 class="mb-3">¡Todo listo Duberly!</h3>
       <p>Gracias por reportar, nos pondremos a trabajar en ello.</p>
       <img class="alert-image" src="{{asset('/img/alert_form.png')}}" alt="Imagen">
@@ -73,43 +75,44 @@
   </div>
 @endsection
 
-@section('scripts')
- <script>   
-  //----------ARCHIVO----------//
-  function showFileName(input) {
-    var fileLabel = document.querySelector('label[for="file-upload"]');
-    var fileNameSpan = document.getElementById('file-name');
-  
-    if (input.files.length > 0) {
-      var fileName = input.files[0].name;
-      fileLabel.textContent = fileName;
-      fileNameSpan.textContent = 'Archivo seleccionado: ' + fileName;
-    } else {
-      fileLabel.textContent = 'Arrastra y suelta archivos, pega captura de pantalla o busca';
-      fileNameSpan.textContent = '';
+@push('scripts')
+  {{-- <script src="{{ asset('js/select2.js') }}"></script> --}}
+  <script>   
+    //----------ARCHIVO----------//
+    function showFileName(input) {
+      var fileLabel = document.querySelector('label[for="file-upload"]');
+      var fileNameSpan = document.getElementById('file-name');
+    
+      if (input.files.length > 0) {
+        var fileName = input.files[0].name;
+        fileLabel.textContent = fileName;
+        fileNameSpan.textContent = 'Archivo seleccionado: ' + fileName;
+      } else {
+        fileLabel.textContent = 'Arrastra y suelta archivos, pega captura de pantalla o busca';
+        fileNameSpan.textContent = '';
+      }
     }
-  }
-  
-  //----------ALERTA----------//
-  // Obtener referencia a los elementos del DOM
-  const form = document.getElementById('support-form');
-  const alertOverlay = document.getElementById('alert-overlay');
-  const alertButtons = document.getElementsByClassName('alert-button');
-  
-  // Agregar evento de envío del formulario
-  form.addEventListener('submit', function (event) {
-    event.preventDefault(); // Evitar que el formulario se envíe
-  
-    // Mostrar la alerta
-    alertOverlay.style.display = 'flex';
-  });
-  
-  // Agregar eventos a los botones de la alerta
-  for (let i = 0; i < alertButtons.length; i++) {
-    alertButtons[i].addEventListener('click', function () {
-      // Ocultar la alerta
-      alertOverlay.style.display = 'none';
+    
+    //----------ALERTA----------//
+    // Obtener referencia a los elementos del DOM
+    const form = document.getElementById('support-form');
+    const alertOverlay = document.getElementById('alert-overlay');
+    const alertButtons = document.getElementsByClassName('alert-button');
+    
+    // Agregar evento de envío del formulario
+    form.addEventListener('submit', function (event) {
+      event.preventDefault(); // Evitar que el formulario se envíe
+    
+      // Mostrar la alerta
+      alertOverlay.style.display = 'flex';
     });
-  }
-  </script>
-@endsection
+    
+    // Agregar eventos a los botones de la alerta
+    for (let i = 0; i < alertButtons.length; i++) {
+      alertButtons[i].addEventListener('click', function () {
+        // Ocultar la alerta
+        alertOverlay.style.display = 'none';
+      });
+    }
+    </script>
+@endpush

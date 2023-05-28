@@ -1,3 +1,6 @@
+/* @import 'select2-css'; */
+/* @import 'select2/dist/css/select2.min.css'; */
+
 *{
     font-family: 'Poppins', sans-serif;
 }
@@ -35,6 +38,11 @@ body{
 
 
 /****************   REGISTER   ****************/
+
+/* Cambiar el nombre de logo */
+#text-nav-logo::before {
+    content: "Centro de Ayuda TECSUP";
+}
 
 .text-weight-300{
     font-weight: 300;
@@ -151,4 +159,36 @@ border: none;
 border-radius: 4px;
 cursor: pointer;
 margin: 0 10px;
+}
+
+
+#auth-register .width-responsibe{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15px;
+}
+
+@media(max-width: 576px){
+
+    /****************   REGISTER   ****************/
+    #auth-register input,
+    #auth-register select,
+    #auth-register .width-responsibe{
+        margin: 0 0px;
+        /* justify-content: space-around; */
+        width: 100%;
+        padding: 0px;
+    }
+
+    /************ HOME ****************/
+
+    /* Cambiar el nombre de logo */
+    #text-nav-logo::before {
+        content: "CATEC";
+    }
+    
+    #content-home {
+        padding: 0 2rem !important;
+    }
+
 }

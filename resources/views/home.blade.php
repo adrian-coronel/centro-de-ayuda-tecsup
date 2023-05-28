@@ -11,18 +11,18 @@
 
     
 @section('content')
-<div class="w-75 card shadow-lg px-5 py-4 col-11 col-lg-4 col-md-6 col-sm-8 mx-auto mt-5 mb-5 text-start d-flex align-items-center justify-content-center">
+<div id="content-home" class="card shadow-lg px-5 py-4 col-11 col-lg-7 col-md-10 mx-auto mt-5 mb-5 text-start d-flex align-items-center justify-content-center">
         
   <div>
       <a href="" class="text-decoration-none">Centro de ayuda de Tecsup</a>
-      <h4 class="pb-1 pt-4">¡BIENVENIDO ADRIAN!</h4>
+      <h4 class="pb-1 pt-4">¡BIENVENIDO DUBERLYCITA!</h4>
       <p class="pb-3">Mediante este sitio buscamos mejorar la experiencia, bienestar y seguridad tanto de estudiantes, como del personal dentro del campus. El programa busca prevenir incidentes y, si ocurren, abordarlos de manera oportuna y eficaz para erradicar cualquier daño o consecuencias negativas.</p>
       <p class="mb-4"><i class='bx bx-paper-plane' style="font-size: 1.5rem"></i><span class="mx-1">Contacta con nosotros sobre</span></p>
   </div>
   
   <!-- ---------------MANTENIMIENTO--------------- -->
   <div class="hover-effect accordion w-100 mb-3">
-      <div class="accordion-header d-flex justify-content-between align-items-center">
+      <div class="accordion-header d-flex justify-content-between text-align">
           <p class="p-2 text-primary">Mantenimiento</p>
           <a class="collapsed btn text-secondary text-center" type="button" data-bs-toggle="collapse" data-bs-target="#content-1">Ver más...</a>
       </div>
@@ -38,7 +38,7 @@
           
   <!-- ---------------SEGURIDAD--------------- -->
   <div class="hover-effect accordion w-100 mb-3">
-      <div class="accordion-header d-flex justify-content-between align-items-center">
+      <div class="accordion-header d-flex justify-content-between text-align">
           <p class="p-2 text-primary">Seguridad</p>
           <a class="collapsed btn text-secondary text-center" type="button" data-bs-toggle="collapse" data-bs-target="#content-2">Ver más...</a>
       </div>
@@ -54,7 +54,7 @@
           
   <!-- ---------------MEDIO AMBIENTE--------------- -->
   <div class="hover-effect accordion w-100 mb-3">
-      <div class="accordion-header d-flex justify-content-between align-items-center">
+      <div class="accordion-header d-flex justify-content-between text-align">
           <p class="p-2 text-primary">Medio ambiente</p>
           <a class="collapsed btn text-secondary text-center" type="button" data-bs-toggle="collapse" data-bs-target="#content-3">Ver más...</a>
       </div>
@@ -71,7 +71,7 @@
           
   <!-- ---------------TRANSPORTE--------------- -->
   <div class="hover-effect accordion w-100 mb-3">
-      <div class="accordion-header d-flex justify-content-between align-items-center">
+      <div class="accordion-header d-flex justify-content-between text-align">
           <p class="p-2 text-primary">Transporte</p>
           <a class="collapsed btn text-secondary text-center" type="button" data-bs-toggle="collapse" data-bs-target="#content-4">Ver más...</a>
       </div>
@@ -88,7 +88,7 @@
           
   <!-- ---------------OTROS--------------- -->
   <div class="hover-effect accordion w-100 mb-3">
-      <div class="accordion-header d-flex justify-content-between align-items-center">
+      <div class="accordion-header d-flex justify-content-between text-align">
           <p class="p-2 text-primary">Otros</p>
           <a class="collapsed btn text-secondary text-center" type="button" data-bs-toggle="collapse" data-bs-target="#content-5">Ver más...</a>
       </div>

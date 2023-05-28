@@ -6,7 +6,7 @@
 
 @section('content')
 
-<div class="card shadow-lg px-5 py-4 col-11  col-lg-4 col-md-6 col-sm-8 mx-auto text-center position-absolute top-50 start-50 translate-middle">
+<div class="card shadow-lg px-5 py-4 col-11 col-md-6 col-sm-8 col-xl-4 mx-auto text-center position-absolute top-50 start-50 translate-middle">
   <h4 class="text-secondary" style="font-family: 'Poppins', sans-serif;font-weight:600;">¡Hola, <span class="text-primary">te damos la <br> bienvenida!</span></h4>
   <form  action="">
     <div class="form-group mt-3">
