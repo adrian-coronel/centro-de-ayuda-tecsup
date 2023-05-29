@@ -20,7 +20,7 @@ class IncidentController extends Controller
      * Show the form for creating a new resource.
      */
     public function create($selectIdService)
-    {   
+    {
         return view('incident.create',[
             'incident' => new Incident,
             'services' => Service::select('id_service','name')->get(),

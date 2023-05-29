@@ -27,7 +27,7 @@
   <label class="mb-1 mt-4" for="services">Categorías</label>
   <select name="id_service" id="services" style="width: 100%" class="form-select" required>
     @foreach ($services as $service)
-      <option 
+      <option
         {{$service->id_service == $selectIdService ? 'selected' : ''}} 
         value="{{$service->id_service}}"
       >
