@@ -33,8 +33,20 @@ class IncidentController extends Controller
      */
     public function store(Request $request)
     {
-        // dump($request);
-        return $request;
+        $id_user = 4;
+
+        // esta es una asignación en masa
+        $incident = new Incident([
+            'id_user' => $id_user,
+            'id_service' => $request->id_service,
+            'subject' => $request->subject,
+            'urgency' => $request->urgency,
+            'impact' => $request->impact,
+            'description' => $request->description
+        ]);
+        $incident->save();
+
+        return redirect()->route('services.index');
     }
 
     /**

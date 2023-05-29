@@ -12,10 +12,16 @@
 
 @section('content')
 
-<form action="{{route('incidents.store')}}" method="POST" class="mt-5 bg-white d-flex flex-column rounded-2 shadow p-5 col-lg-7 mx-auto" id="support-form" enctype="multipart/form-data">
+<form action="{{route('incidents.store')}}" method="POST" class="bg-white my-5 d-flex flex-column rounded-2 shadow p-5 col-lg-7 mx-auto" id="support-form" enctype="multipart/form-data">
   @csrf
   <label class="mb-1" for="subject">Asunto</label>
-  <input class="form-control" type="text" name="subject" placeholder="Ingresa el asunto..." required>
+  <input 
+    value="{{old('subject',$incident->subject)}}"
+    class="form-control" 
+    type="text" name="subject"
+    placeholder="Ingresa el asunto..." 
+    required
+  />
 
   
   <label class="mb-1 mt-4" for="services">Categorías</label>
@@ -32,17 +38,27 @@
 
 
   <label class="mb-1 mt-4" for="description">Describe qué ha ocurrido y cómo ha ocurrido</label>
-  <textarea id="description" name="description" class="form-control" placeholder="Describe tu texto aquí..." required></textarea>
+  <textarea id="description" 
+    value="{{old('description ',$incident->description)}}" 
+    name="description" class="form-control" 
+    placeholder="Describe tu texto aquí..." 
+    required>
+  </textarea>
 
   <label class="mb-1 mt-4" for="attachment">Archivo adjunto:</label>
   <div class="file-upload form-control py-5 text-center">
     <label for="file-upload">Arrastra y suelta archivos, pega captura de pantalla o busca</label><br>
-    <input class="input-form p-2 rounded border" type="file" name="file" id="file-upload" style="display: none;" onchange="showFileName(this)">
+    <input class="input-form p-2 rounded border" 
+      type="file" name="file" 
+      value="{{'file',$incident->file_path}}"
+      id="file-upload" style="display: none;" 
+      onchange="showFileName(this)"
+    />
     <button class="btn btn-secondary px-5 mt-3" type="button" onclick="document.getElementById('file-upload').click()">Subir</button>
   </div>
 
   <label class="mb-1 mt-4" for="urgency">¿Con qué urgencia hay que arreglar el problema?</label>
-  <select id="urgency" name="urgency" class="form-select" required>
+  <select id="urgency" name="urgency" class="form-select" value="{{old('urgency',$incident->urgency)}}" required>
     <option value="" disabled selected>Seleccione...</option>
     <option value="critico">Crítico</option>
     <option value="alto">Alto</option>
@@ -66,7 +82,7 @@
   </form>
   </div>
 
-  <!-- Alerta -->
+  <!-- Alerta (CREAR COMPONENTE)-->
   <div id="alert-overlay" class="alert-overlay" style="display: none;">
     <div class="bg-white p-4 text-center shadow-sm rounded-3 col-10 col-lg-4 col-md-5 col-sm-7">
       <h3 class="mb-3">¡Todo listo Duberly!</h3>
@@ -74,7 +90,7 @@
       <img class="alert-image" src="{{asset('/img/alert_form.png')}}" alt="Imagen">
 
       <div class="d-flex justify-content-center">
-        <button id="btn-cancel" class="alert-button" type="submit">Cancelar</button>
+        <button id="btn-cancel" class="alert-button">Cancelar</button>
         <button id="btn-send" class="alert-button">Aceptar</button>
       </div>
     </div>
@@ -110,22 +126,16 @@
     function showAlert(){
       alertOverlay.style.display = 'flex';
 
+      //AGREGAR VALIDACIÓN
+
       btnSend.addEventListener('click',function(event){
         form.submit();
       })
 
       btnCancel.addEventListener('click',function(event){
-        event.preventDeault();
-      })
-
-    }
-    
-    // Agregar eventos a los botones de la alerta
-    for (let i = 0; i < alertButtons.length; i++) {
-      alertButtons[i].addEventListener('click', function () {
-        // Ocultar la alerta
         alertOverlay.style.display = 'none';
-      });
+        form.preventDeault();
+      })
     }
   </script>
 @endsection

@@ -21,7 +21,7 @@
     @yield('nav')
   </header>
 
-  <div class="container">
+  <div class="container my-4">
     <div class="row"> 
       @yield('content')
     </div>
