@@ -9,8 +9,9 @@
           <span id="text-nav-logo"></span>
       </a>
     </div>
-    <a href="#" class="d-flex justify-content-center align-items-center rounded-circle border border-white mx-3" style="height: 30px; width: 30px;">
+    <a href="#" class="overflow-hidden d-flex justify-content-center align-items-center rounded-circle border border-white mx-3" style="height: 30px; width: 30px;">
         <span class="text-white font-weight-bold">D</span>
+        {{-- <img class="w-100" src="{{$user->picture}}" alt=""> --}}
     </a>
   </div>
 </nav>

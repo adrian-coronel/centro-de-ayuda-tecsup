@@ -3,26 +3,20 @@
 @section('title','Home')
 @section('body-class','home-background')
 
-@section('nav')
-  @include('includes.nav')
-@endsection
-  
-@include('includes.lateral-menu') {{--componente--}}
-
     
 @section('content')
-<div class="card shadow-lg px-5 py-4 col-11 col-lg-7 col-md-10 mx-auto mt-5 mb-5 text-start d-flex align-items-center justify-content-center">
-        
-  <div>
-      <a href="" class="text-decoration-none">Centro de ayuda de Tecsup</a>
-      <h4 class="pb-1 pt-4">¡BIENVENIDO DUBERLYCITA!</h4>
-      <p class="pb-3">Mediante este sitio buscamos mejorar la experiencia, bienestar y seguridad tanto de estudiantes, como del personal dentro del campus. El programa busca prevenir incidentes y, si ocurren, abordarlos de manera oportuna y eficaz para erradicar cualquier daño o consecuencias negativas.</p>
-      <p class="mb-4"><i class='bx bx-paper-plane' style="font-size: 1.5rem"></i><span class="mx-1">Contacta con nosotros sobre</span></p>
-  </div>
-  
-  @foreach ($services as $key => $service)    
-    <x-service-accordion :service='$service' :key='$key'/>
-  @endforeach
 
-</div>  
+  <div class="d-flex mx-auto">
+    <div class="text-body col-6 h-100 d-flex flex-column justify-content-center">
+      <h1>¡BIENVENIDO!</h1>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt dignissimos maiores nemo incidunt sit. Numquam odio, et ipsam debitis ea, perspiciatis sequi ipsa nihil facere maxime magni facilis veritatis dicta vel quidem eum aperiam tenetur deleniti eaque natus? Quia, aliquid sunt dolores tempore deserunt sed eaque, ipsa non nobis eligendi ipsam optio odit suscipit soluta placeat doloribus iure? Aliquam quisquam, consequuntur maiores fugit labore.</p>
+      <div>
+        <a href="{{route('services.index')}}" class="btn btn-primary">¡Empezar!</a>
+      </div>
+    </div>
+    <div class="content-img col-6">
+      <img class="w-100" src="https://revistaseguridad360.com/wp-content/uploads/2022/06/ciberseguridad.png" alt="">
+    </div>
+  </div>
+
 @endsection

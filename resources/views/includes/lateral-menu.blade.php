@@ -19,8 +19,9 @@
 
     <!-- PROFIFLE -->
     <div class="container d-flex">
-        <div class="m-auto rounded-circle bg-primary text-white d-flex justify-content-center align-items-center">
-            <h1 class="text-center">D</h1>
+        <div class="overflow-hidden m-auto rounded-circle bg-primary text-white d-flex justify-content-center align-items-center">
+            {{-- <h1 class="text-center">D</h1> --}}
+            {{-- <img src="{{$user->picture}}" alt=""> --}}
         </div>
     </div>
     <!-- SECTION 1-->
@@ -69,7 +70,9 @@
         <div class="container-svg">
             <div>
                 <i class='bx bx-log-out'></i>
-                <span>Cerrar Sesion</span>
+                <a href="/logout">
+                    <span>Cerrar Sesion</span>
+                </a>
             </div>
         </div>
     </aside>

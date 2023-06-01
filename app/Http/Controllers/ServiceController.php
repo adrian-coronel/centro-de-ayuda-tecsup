@@ -12,8 +12,9 @@ class ServiceController extends Controller
      */
     public function index()
     {
+        
         $services = Service::all(['id_service','name','description']);
-        return view('home',compact('services'));
+        return view('service.index',compact('services'));
     }
 
     /**
