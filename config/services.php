@@ -30,5 +30,17 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'oauth2' => [
+        'auth0' => [
+            'client_id' => env('AUTH0_CLIENT_ID'),
+            'client_secret' => env('AUTH0_CLIENT_SECRET'),
+            'redirect' => env('APP_URL') . '/callback',
+            'allowed_redirects' => [
+                env('APP_URL') . '/callback',
+            ],
+            'domain' => env('AUTH0_DOMAIN'),
+            'redirect_uri' => env('AUTH0_REDIRECT_URL'), // Agrega esta línea para la URL de redirección
+        ],
+    ],
 
 ];

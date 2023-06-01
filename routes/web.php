@@ -15,13 +15,34 @@ use App\Http\Controllers\ServiceController;
 |y
 */
 
+// LOGIN CON AUTH0
+Route::get('/private', function () {
+    return response('Welcome! You are logged in.');
+  })->middleware('auth');
+  
+  Route::get('/scope', function () {
+      return response('You have `read:messages` permission, and can therefore access this resource.');
+  })->middleware('auth')->can('read:messages');
+  
+Route::get('/', function () {
+  if (! auth()->check()) {
+    return response('You are not logged in.');
+  }
 
-Route::get('/login', function(){
-    return view('auth.login');
-})->name('login');
-Route::get('/register', function(){
-    return view('auth.register');
-})->name('register');
+  $user = auth()->user();
+  $name = $user->name ?? 'User';
+  $email = $user->email ?? '';
+
+  return response($user);
+});
+
+
+// Route::get('/login', function(){
+//     return view('auth.login');
+// })->name('login');
+// Route::get('/register', function(){
+//     return view('auth.register');
+// })->name('register');
 
 Route::get('/services',[ServiceController::class, 'index'])->name('services.index');
 Route::get('/incidents', [IncidentController::class, 'index'])->name('incidents.index');

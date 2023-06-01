@@ -49,11 +49,11 @@
   <div class="file-upload form-control py-5 text-center">
     <label for="file-upload">Arrastra y suelta archivos, pega captura de pantalla o busca</label><br>
     <input class="input-form p-2 rounded border" 
-      type="file" name="file" 
-      value="{{'file',$incident->file_path}}"
-      id="file-upload" style="display: none;" 
-      onchange="showFileName(this)"
-    />
+    type="file" name="file" 
+    value="{{$incident->file_path}}"
+    id="file-upload" style="display: none;" 
+    onchange="showFileName(this)"
+  />
     <button class="btn btn-secondary px-5 mt-3" type="button" onclick="document.getElementById('file-upload').click()">Subir</button>
   </div>
 
